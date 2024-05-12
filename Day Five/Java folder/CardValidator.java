@@ -1,31 +1,34 @@
 public class CardValidator { 
 
-	public static boolean CardNumberValidator(String cardNumber) { 
+	public static Boolean cardNumberValidator(String cardNumber){
 
-		String[] cardNumberArray = null;
-		
-		for(int cardNumberCounter = 0; cardNumberCounter < cardNumber.length; cardNumberCounter++) { 
-		if(cardNumber.length > 16 || cardNumber.length < 16) { 
-			System.out.print("Invalid Number, Please enter 16 digit number");
+ 
+		if(cardNumber.length() != 16) { 
+			System.out.println("Invalid Number, Please enter 16 digit number");
+				return false;
 		}
 			
-
-		if(cardNumber.length == 16)  { 		
-			if(cardNumber.length[0] == "4" || cardNumber.length[0] == "5" || cardNumber.length[0] == "6") { 
+		char cardNumberIndex = cardNumber.charAt(0);
+		//if(cardNumber.length() == 16)  {		
+			if(cardNumberIndex == '4' || cardNumberIndex == '5' || cardNumberIndex == '6') {
 					return true;
-			}
-			if(cardNumber.length[0] != "4" || cardNumber.length[0] != "5" || cardNumber.length[0] != "6") {
+			} else {
 				return false;
 			}
-		}
+	//}
+
+	}
+	public static void main(String[] args) {
+		System.out.println(cardNumberValidator("6809898966745452"));
+	}
 }
-}
+
+
 
 	
 
-	
 
-	
+
 			 
 
 		
