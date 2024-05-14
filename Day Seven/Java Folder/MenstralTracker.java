@@ -11,7 +11,8 @@ import java.time.temporal.ChronoUnit;
 		String[] QuestionOne = {"A. I want to track my menstral cycle ", "B. I want to track my period ", "C. know my safe period ", "D. I am trying to conceive"};   
 		System.out.println("What is your goal using this menstral application");
 		for(int count = 0; count < QuestionOne.length; count++) { 
-		System.out.println(QuestionOne[count]);}
+			System.out.println(QuestionOne[count]);
+		}
 		String response = scanner.nextLine();
 		System.out.print("You are at the right place");
 
@@ -24,7 +25,7 @@ import java.time.temporal.ChronoUnit;
 		
 		
 		String[] QuestionThree = {"A. Normal ", "B. Angry ", "C. Happy ", "D. Sad ", "E. Depressed ", "F, Confused ", "G. Anxious ", "H. Exhausted "};   
-		System.out.println("Understand your cycle better by using uour body signal");
+		System.out.println("Understand your cycle better by using your body signal");
 		for(int count = 0; count < QuestionThree.length; count++) { 
 		System.out.println(QuestionThree[count]);}
 		String responseThree = scanner.nextLine();
@@ -57,8 +58,13 @@ import java.time.temporal.ChronoUnit;
 		int cycleLength = scanner.nextInt();
 		
 		LocalDate yourNextMenstralCycleis = lastPeriodStartn.plusDays(cycleLength);
+		LocalDate yourOvulationPeriod = yourNextMenstralCycleis.minusDays(14);
+		LocalDate stopFlowPeriodForNextCycle = yourNextMenstralCycleis.plusDays(durationOfPeriod);
+		
 
-		System.out.print(yourNextMenstralCycleis);
+	
+
+		System.out.print("Your next menstration period is from " + yourNextMenstralCycleis + " to " + stopFlowPeriodForNextCycle );
 		
 
 		
