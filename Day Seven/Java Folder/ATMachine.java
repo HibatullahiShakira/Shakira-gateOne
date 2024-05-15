@@ -11,9 +11,9 @@ import java.util.Scanner;
 		String lastName = scanner.nextLine();
 		System.out.println("Create your pin(Enter a four digit pin)");
 		String pin = scanner.nextLine();
-		Account newAccount = new Account(firstName, secondName, pin);
-			customersAccount.add(newAccount)
-		System.out.println("Account successfully created. Your bank account name is  " firstName +  " " + secondName + getAccountNumber());
+		Account newAccount = new Account(firstName, secondName, pin, accountNumber);
+			customersAccount.add(newAccount);
+		System.out.println("Account successfully created. Your bank account name is " + firstName +  " " + secondName + getAccountNumber());
 		}
 
 		private void doDeposit() { 
@@ -26,7 +26,7 @@ import java.util.Scanner;
 			System.out.println("Enter the amount you want to deposit");
 			int amount = scanner.nextInt();
 			System.out.println("withdrawal Sucessful");
-			System.out.print("Your new balance is: " Account.getAccountNumber());
+			System.out.println("Your new balance is: " +  Account.getAccountNumber());
 			}
 			System.out.println("Account not found");
 		}
@@ -34,16 +34,46 @@ import java.util.Scanner;
 		private void withdraw() { 
 		Scanner scanner = new Scanner(System.in);
 
-		System.out.print("Enter your account number");
+		System.out.println("Enter your account number");
 		String accountNumber = scanner.nextLine();
-		System.out.print("Enter the amount you want to withdraw");
-		int withdrawAmount = scanner.nextLine();
-		if(accountNumber == Account.getAccountNumber()) {
-				Account.deposit(amount);
+			if(accountNumber == Account.getAccountNumber()) {
+				Account.withdraw(amount);
+				System.out.print("Your account balance is: " + Account.getAccountNumber());
+				
+			}
 		}
+
 		private void checkAccount() { 
 		Scanner scanner = new Scanner(System.in);
+			
+		System.out.println("Enter your account number");
+		String accountNumber = scanner.nextLine();
+			if(accountNumber == Account.getAccountNumber()) {
+				System.out.print("Your balance is " +  Account.getBalance());
+			}
+		}
 		
-		System.out.print("Enter your Account Number");
+		private void transfer() { 
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("Enter your account number");
+		String accountNumber = scanner.nextLine();
+			if(accountNumber == Account.getAccountNumber()) {
+				System.out.println("Enter the amount you want to transfer");
+				int transferAmount = scanner.nextInt();
+			}
+		}
+
+	public static void main(String[] args) { 
+		createNewAccount();
+		doDeposit();
+		checkAccount();
+		transfer();
+	}
+}
+	 
+
+
+		
 
 		

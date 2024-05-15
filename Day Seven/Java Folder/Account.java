@@ -1,8 +1,9 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-	ArrayList<Account> customerAccounts = new ArrayList<Account>();
+import java.util.Random
 	public class Account {
-		private Static int nextUserAccountNumber = 23423213; 
+	ArrayList<Account> customerAccounts = new ArrayList<Account>();
+		private static final Random rand = new Random(); 
 		private String accountNumber;
 		private double balance;
 		private double lastName;
@@ -10,11 +11,11 @@ import java.util.Scanner;
 		private String pin;
 	
 
-			public Account(String firstName, String secondNumber, String pin) {
+			public Account(String firstName, String lastName, String pin) {
 				this.firstName= firstName;
 				this.secondName= lastName;
-				this.pin = pin;
-				this.accountNumber = String.valueOf(nextUserAccountNumber++);
+				this.pin=pin;
+				this.accountNumber = String.valueOf(rand.nextInt(10000000000));
  			}
 
 			public String getAccountNumber() {
@@ -29,36 +30,29 @@ import java.util.Scanner;
 				this.balance += amount;
 				}
 			}
-			public String withdraw(double amount) {
-				if(balance => amount) { 
+			public double withdraw(double amount) {
+				if(balance >= amount) { 
 					this.balance -= amount;
-					return withdrawal sucessful;
-				}
-				return insufficient funds;
 			}
+
 			public double checkBalance() {
 				return balance;
 			}
 
-			public String transfer(Account toanotherAccount, double amount) { 
+			public double transfer(Account toanotherAccount, double amount) { 
 				if(amount <= balance) { 
 					balance -= amount;
-					toanotherAccount.deposit(amount) 
-				return transfer sucessful;
+					toanotherAccount.deposit(amount);
 				}
-			return transaction failed;
 			}
 	
-			public String verifyPin(String pin){ 
-			 	this.pin.equals.(pin);
-				return correct pin, verification successful;
-				}
-			return incorrect pin, pin verification not sucessful;
+			public boolean verifyPin(String pin){ 
+			 	return this.pin.equals(pin);
 			}
 				
 			public String changePin(String newPin) {
-				this.pin = newpin
-				return pin changed succesfully;
+				this.pin = newPin;
+				return "pin changed succesfully";
 			}
 		}
 
