@@ -63,9 +63,11 @@ import java.time.temporal.ChronoUnit;
 		LocalDate safePeriod1 = yourNextMenstralCycleis.minusDays(7);
 		LocalDate safePeriod2 = yourNextMenstralCycleis.plusDays(durationOfPeriod);
 	
-		System.out.println("Your ovulation period is " +  yourOvulationPeriod.plusDays);
-		System.out.print("Your safe period for the month are " + safePeriod1 + " to " + yourNextMenstralCycleis + " and " + safePeriod2 );
-		System.out.print("Your next menstration period is from " + yourNextMenstralCycleis + " to " + stopFlowPeriodForNextCycle );
+		
+		System.out.println("Your period will last for  " + durationOfPeriod);
+		System.out.println("Your ovulation period is " +  yourOvulationPeriod);
+		System.out.println("Your safe period for the month are " + safePeriod1 + " to " + yourNextMenstralCycleis + " and " + safePeriod2 );
+		System.out.println("Your next menstration period is from " + yourNextMenstralCycleis + " to " + stopFlowPeriodForNextCycle );
 		
 
 		
