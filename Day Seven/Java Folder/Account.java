@@ -1,19 +1,26 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
+	ArrayList<Account> customerAccounts = new ArrayList<Account>();
 	public class Account {
-		//private static int 
+		private Static int nextUserAccountNumber = 23423213; 
 		private String accountNumber;
 		private double balance;
 		private double lastName;
-		private double firstName;;
+		private double firstName;
+		private String pin;
 	
 
 			public Account(String firstName, String secondNumber, String pin) {
 				this.firstName= firstName;
 				this.secondName= secondName;
 				this.pin = pin;
+				this.accountNumber = String.valueOf(nextUserAccountNumber++);
  			}
+
+			public String getAccountNumber() {
+				return accountNumber;
+			}
+ 
 			public double getBalance() {
 				return balance;
 			}
@@ -53,7 +60,34 @@ import java.util.Scanner;
 				this.pin = newpin
 				return pin changed succesfully;
 			}
-		
+		}
+
+		public void createNewAccount() { 
+		Scanner scanner = new Scanner(System.in);
+
+		System.out.println("Enter your first name: ");
+		String firstName = scanner.nextLine();
+		System.out.println("Enter your Last name:");
+		String lastName = scanner.nextLine();
+		System.out.println("Create your pin(Enter a four digit pin)");
+		String pin = scanner.nextLine();
+		Account newAccount = new Account(firstName, secondName, pin);
+			customersAccount.add(newAccount)
+		System.out.println("Account successfully created. Your bank account name is  " firstName +  " " + secondName + getAccountNumber());
+		}
+
+		private void doDeposit() { 
+		Scanner scanner = new Scanner(System.in);
+	
+		System.out.println("Enter account number");
+		String accountNumber = scanner.nextLine();
+		System.out.println("Enter the amount you want to deposit");
+		int amount = scanner.nextInt();
+			if(accountNumber == Account.getAccountNumber()) {
+				Account.deposit(amount);
+			System.out.println("withdrawal Sucessful");
+			}
+			System.out.println("Account not found");
 
 	}
 
