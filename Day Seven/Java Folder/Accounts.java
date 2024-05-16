@@ -22,25 +22,26 @@ import java.util.Random;
 			}
 			public double deposit(double amount) { 
 				if(amount > 0.0) {
-				this.balance += amount;
+				this.balance += amount;	
 				}
 				return balance;
 			}
-			public boolean withdraw(double amount) {
+			public double withdraw(double amount) {
 				if(balance >= amount) { 
-					this.balance -= amount;
-				return true;
-			}
-				return false;
+					balance -= amount;
+				return balance;
+			}else { 
+				System.out.print("Insufficient account");}
 			}
 
-			public boolean transfer(Accounts toanotherAccount, double amount) { 
+			public double transfer(Accounts toanotherAccount, double amount) { 
 				if(amount <= balance) { 
-					this.balance -= amount;
+					balance -= amount;
 					toanotherAccount.deposit(amount);
-						return true;
-				}
-				return false;
+						return balance ;
+				}else { 
+				System.out.print("Insufficient account");}
+				
 			}
 	
 			public String getAccountNumber() { 
