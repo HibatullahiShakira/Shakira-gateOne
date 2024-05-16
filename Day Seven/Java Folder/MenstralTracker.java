@@ -8,7 +8,7 @@ import java.time.temporal.ChronoUnit;
 		Scanner scanner = new Scanner(System.in);
 
 
-		String[] QuestionOne = {"A. I want to track my menstral cycle ", "B. I want to track my period ", "C. know my safe period ", "D. I am trying to conceive"};   
+		String[] QuestionOne = {"A. I want to track my menstral cycle", "B. I want to track my period length", "C. know my safe period ", "D. I want to track my ovulation"};   
 		System.out.println("What is your goal using this menstral application");
 		for(int count = 0; count < QuestionOne.length; count++) { 
 			System.out.println(QuestionOne[count]);
