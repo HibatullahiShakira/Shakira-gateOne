@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 	public class ATMachine 	{
-	Scanner scanner = new Scanner(System.in);
+	private Scanner scanner = new Scanner(System.in);
 	private ArrayList<Accounts> customerAccounts = new ArrayList<Accounts>();
 	
 		private Accounts accountFinder(String accountNumber) {
@@ -15,7 +15,7 @@ import java.util.Scanner;
 		}
 
 
-		public void createNewAccount(Scanner scanner) { 
+		public void createNewAccount() { 
 		//Scanner scanner = new Scanner(System.in);
 			scanner.nextLine();
 		System.out.println("Enter your first name: ");
@@ -29,13 +29,13 @@ import java.util.Scanner;
 		System.out.println("Account successfully created. Your bank account name is " + firstName + lastName + "\n" + newAccount.getAccountNumber() + "\nBanke Bank");
 		}
 
-		private void doDeposit(Scanner scanner) { 
+		private void doDeposit() { 
 		System.out.println("Enter account number");
 		String accountNumber = scanner.nextLine();
 			Accounts account = accountFinder(accountNumber);
 			System.out.println("Enter the amount you want to deposit");
 			double amount = scanner.nextDouble();
-				if(account != null) {
+				if(account == account) {
 					account.deposit(amount);
 			System.out.println("Money deposited sucessfully");
 			System.out.println("Your new balance is: " + account.getBalance());
@@ -44,93 +44,85 @@ import java.util.Scanner;
 			}
 		}
 
-		private void withdraw(Scanner scanner) { 
+		private void withdraw() { 
 		System.out.println("Enter your account number");
 		String accountNumber = scanner.nextLine();
 		
 		System.out.println("Enter the amount you want to withdrdaw");
 		double amount = scanner.nextInt();
-		Accounts account = accountFinder(accountNumber );
-			if(accountNumber != null) {
+		Accounts account = accountFinder(accountNumber);
+			if(accountNumber == account) {
 				account.withdraw(amount);
 				System.out.print("Your account balance is: " + account.getAccountNumber());
 				
 			}
 		}
 
-		private void checkAccountBalance(Scanner scanner) { 	
+		private void checkAccountBalance() { 	
 		System.out.println("Enter your account number");
 		String accountNumber = scanner.nextLine();
 		Accounts account = accountFinder(accountNumber);
-			if(account != null) {
+			if(account == account) {
 				System.out.print("Your balance is " +  account.getBalance());
 			}
 		}
 		
-		private void transfer(Scanner scanner) { 
+		private void transfer() { 
 		System.out.println("Enter your account number");
 		String accountNumberr = scanner.nextLine();
+		System.out.print("Enter the amount you want to transfer");
+		double transferAmount = scanner.nextDouble();
 		Accounts accountNumberFrom  = accountFinder(accountNumberr );
-			if(accountNumberFrom != null) {
-				System.out.println("Enter the account number you want to transfer to");
-				String accountNumbeer = scanner.nextLine();
-				Accounts accountNumberTo = accountFinder(accountNumbeer);
-					if(accountNumberTo != null) {
-					System.out.print("Enter the amount you want to transfer");
-					double transferAmount = scanner.nextDouble();
-						scanner.nextLine();
-						accountNumberFrom.transfer(accountNumberTo, transferAmount);
+			if(accountNumberFrom == account) {
+				accountNumberFrom.withdraw(transferAmount);
+				}
+			else { System.out.println("Account not found"); 
+			}
+
+			
+			System.out.println("Enter the account number you want to transfer to");
+			String accountNumbeer = scanner.nextLine();
+			Accounts accountNumberTo = accountFinder(accountNumbeer);
+			if(accountNumberTo == account) {
+				accountNumberTo.deposit(transferAmount);
 				System.out.println("Transfer Sucessful");
 				System.out.println("Your current balance is " + accountNumberFrom.getBalance());
-
-				 	}else {System.out.println("Account not found");}		
-						
-			}else{System.out.println("Transaction failed
-");}		
+			}
+			else { System.out.println("Transaction failed");
+			}		
 			//scanner.close();
 		}
+		
 
 		public void startATMachineOperation() { 
 		Scanner scanner = new Scanner(System.in);
-
-		String menu = """
 		
-		Banke BankApplication
-		
-		1. Create a account
-		2. Close account 
-		3. Deposit money 
-		4. Check Account balance
-		5. Transfer from one account
-		6. Withdraw Money 
-		7. Change pin
-		8. Exit application
-		""";
+		//while(true)
 
-	System.out.print(menu);
+	System.out.print("Banke BankApplication\n1. Create a account \n2. Close account\n3. Deposit money\n4. Check Account balance \n5. Transfer from one account \n6. Withdraw Money \n7. Change pin \n8. Exit application");
 	int bankAppChoice = scanner.nextInt();
 
 	switch(bankAppChoice){
 
-	case 1: createNewAccount(scanner);
+	case 1: createNewAccount();
 	break;
 
-	//case 2: closedAccount(scanner);
+	//case 2: closedAccount();
 	//break;
 
-	case 3: doDeposit(scanner);
+	case 3: doDeposit();
 	break;
 
-	case 4: withdraw(scanner);
+	case 4: withdraw();
 	break;
 
-	case 5: checkAccountBalance(scanner);
+	case 5: checkAccountBalance();
 	break;
 
-	case 6: transfer(scanner);
+	case 6: transfer();
 	break;
 
-	//case 7: changePin(scanner);
+	//case 7: changePin();
 	//break;
 
 	

@@ -1,6 +1,6 @@
 import java.util.Random;
 
-	public class Accounts {
+public class Accounts{
 
 		private static final Random rand = new Random(); 
 		private String accountNumber;
@@ -10,7 +10,7 @@ import java.util.Random;
 		private String pin;
 	
 
-			public Accounts(String firstName, String lastName, String pin) {
+			public Accounts (String firstName, String lastName, String pin) {
 				this.firstName= firstName;
 				this.lastName= lastName;
 				this.pin=pin;
@@ -27,37 +27,20 @@ import java.util.Random;
 				return balance;
 			}
 			public double withdraw(double amount) {
-				if(balance >= amount) { 
-					balance -= amount;
+				if(balance > amount) { 
+					 this.balance -= amount;
 				return balance;
-			}else { 
-				System.out.print("Insufficient account");}
+				} else { System.out.println("Insufficient balance");}
+					return balance;
+					}
 			}
 
-			public double transfer(Accounts toanotherAccount, double amount) { 
-				if(amount <= balance) { 
-					balance -= amount;
-					toanotherAccount.deposit(amount);
-						return balance ;
-				}else { 
-				System.out.print("Insufficient account");}
-				
-			}
-	
 			public String getAccountNumber() { 
 				return accountNumber;
 			}
 
-			public boolean verifyPin(String pin){ 
-			 	return this.pin.equals(pin);
-			}
-				
-			public String changePin(String newPin) {
-				this.pin.equals(newPin);
-				return "pin changed succesfully";
-			}
-		
-}
+			
+
 		
 	
 
