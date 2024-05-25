@@ -19,7 +19,7 @@ const prompt = require("prompt-sync")();
 			prices.push(price);
 	total += price * quantity; 
 
-	let moreItems = ("Would you Add more Items?(enter yes or no: ").toLowerCase();
+	moreItems = ("Would you Add more Items?(enter yes or no: ").toLowerCase();
 
 	} while(moreItems === "yes");
 
